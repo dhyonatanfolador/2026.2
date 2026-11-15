@@ -1,0 +1,224 @@
+**1. Conceitos fundamentais**
+
+
+
+**Algoritmo:** conjunto finito e ordenado de passos utilizados para resolver um problema.
+
+
+
+**Estrutura de dados:** forma de organizar e armazenar dados para que possam ser utilizados e manipulados de maneira eficiente.
+
+
+
+**Análise de algoritmos:** estudo do desempenho de um algoritmo, principalmente em relação ao tempo de execução e ao uso de memória.
+
+
+
+**2. Análise de algoritmos**
+
+
+
+Um dos principais conceitos é a Complexidade de Tempo, que indica como o número de operações de um algoritmo cresce conforme aumenta a quantidade de dados de entrada.
+
+
+
+A notação mais utilizada é a Big O (O).
+
+
+
+Exemplos:
+
+
+
+O(1) → tempo constante
+
+O(log n) → tempo logarítmico
+
+O(n) → tempo linear
+
+O(n log n) → linear-logarítmico
+
+O(n²) → quadrático
+
+O(2ⁿ) → exponencial
+
+
+
+Pior caso: representa a maior quantidade de operações que o algoritmo poderá realizar para uma determinada entrada.
+
+
+
+**3. Métodos de ordenação**
+
+
+
+Os principais algoritmos estudados são
+
+
+
+Bubble Sort: compara elementos vizinhos e troca suas posições quando estão fora de ordem.
+
+
+
+Selection Sort: procura o menor elemento e coloca-o na posição correta.
+
+
+
+Insertion Sort: insere cada elemento na posição correta dentro da parte já ordenada.
+
+
+
+Quick Sort: escolhe um elemento como pivô e divide os elementos em partes menores e maiores que o pivô.
+
+
+
+Merge Sort: divide o vetor em partes menores, ordena essas partes e depois realiza a intercalação.
+
+
+
+Heap Sort: utiliza uma estrutura chamada heap para organizar os elementos e realizar a ordenação.
+
+
+
+
+
+**5. Estruturas de dados lineares**
+
+
+
+&#x20; **• Pilha (Stack)**
+
+
+
+Segue o princípio:
+
+
+
+**LIFO — Last In, First Out**
+
+
+
+O último elemento inserido é o primeiro a sair.
+
+
+
+&#x20;    ↓ topo
+
+&#x20;   \[30] ← sai primeiro
+
+&#x20;   \[20]
+
+&#x20;   \[10]
+
+
+
+Principais operações:
+
+
+
+push → adiciona
+
+pop → remove
+
+peek/top → consulta o topo
+
+
+
+\---
+
+&#x20; • **Fila (Queue)**
+
+
+
+Segue o princípio:
+
+
+
+**FIFO — First In, First Out**
+
+
+
+O primeiro elemento inserido é o primeiro a sair.
+
+
+
+Entrada → \[30] \[20] \[10] → Saída
+
+&#x20;                        ↑
+
+&#x20;                     primeiro
+
+
+
+Principais operações:
+
+
+
+enqueue → adiciona
+
+dequeue → remove
+
+front → consulta o primeiro
+
+
+
+\---
+
+&#x20; **• Lista (List)**
+
+
+
+É uma estrutura formada por elementos organizados sequencialmente.
+
+
+
+Pode permitir operações como:
+
+
+
+Inserção
+
+Remoção
+
+Busca
+
+Alteração
+
+
+
+
+
+
+
+Percorrimento
+
+
+
+
+
+**6. Java e Orientação a Objetos**
+
+
+
+Os algoritmos e estruturas de dados serão implementados em Java, utilizando conceitos de Programação Orientada a Objetos (POO).
+
+
+
+**Conceitos importantes:**
+
+
+
+Classe → modelo para criar objetos.
+
+Objeto → instância de uma classe.
+
+Atributo → característica de um objeto.
+
+Método → comportamento/ação de um objeto.
+
+Encapsulamento → controle do acesso aos dados.
+
+Herança → permite criar classes baseadas em outras.
+
+Polimorfismo → permite que diferentes objetos respondam de maneiras diferentes à mesma operação.
+

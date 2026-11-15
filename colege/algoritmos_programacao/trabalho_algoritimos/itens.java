@@ -1,0 +1,4 @@
+class itens
+{
+    String nome;
+}

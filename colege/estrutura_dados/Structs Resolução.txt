@@ -1,0 +1,54 @@
+Questão 1
+
+Modulo A: Eu utilizaria o vetor, pela agilidade no acesso das informações por ter uma complexidade menor, de Big O(1), pois como a posição das novas mensagens é sempre o final do vetor, não precisamos percorrer ele todo para chegar a mensagem necessária.
+
+Porem ao realizar o scroling para visualizar novas mensagens consideramos outra complexidade para ele O(n).
+
+--
+
+Modulo B: Eu escolheria a lista encadeada, por se tratar de uma fila de impressão, não podemos definir um limite para a quantidade de paginas que ele irá imprimir, e como não precisamos guardar necessariamente os itens depois de utilizados, podemos apaga-los da memoria uma vez que foram impressos.
+O mesmo precisa seguir um fluxo de solicitação, quem entrar primeiro na fila será o primeiro a ser impresso.
+e sua complexidade é O(n)
+
+
+
+Questão 2
+
+A) A função, compara os valores da lista, até estar apontando para o valor final da lista, o mesmo compara eles e realiza a contagem dos valores que são maiores que o X e retorna essa contagem.
+
+B) 
+_____________
+8  - Sim -  1
+3  - Não -  1
+12 - Sim -  2
+5  - Não -  2
+1  - Não -  2
+9  - Sim -  3
+￣￣￣￣￣￣￣￣
+Valor final: 3
+
+
+
+C) Não, pensei em algumas possibilidades, mais todas apenas aumentariam sua complexidade, como realizar a ordenação da lista, e depois percorre-la até encontrar um valor maior que X, dessa forma, podemos considerar que todos os valores depois dele, seriam maiores.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

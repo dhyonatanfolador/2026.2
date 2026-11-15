@@ -1,0 +1,239 @@
+**Estruturado × Orientação a Objetos (O.O.)**
+
+**Programação Estruturada**
+Segue uma sequência de instruções.
+Utiliza principalmente uma abordagem Top-Down: começa pelo problema geral e vai dividindo em partes menores.
+O programa geralmente parte de uma função principal (main) e chama outras funções.
+
+
+
+main() {
+// sequência de instruções
+// chama funções
+
+}
+
+
+A ideia é: “O que o programa precisa fazer?”
+
+
+
+**Programação Orientada a Objetos (O.O.)**
+Organiza o programa em objetos e classes.
+Utiliza uma abordagem Bottom-Up: começa pelas partes menores (objetos) e depois constrói o sistema maior.
+Cada classe pode possuir atributos (características) e métodos (ações).
+
+
+
+class Aluno {
+   // atributos
+   String nome;
+   int idade;
+
+
+
+   // método
+   void estudar() {
+      // ação
+   }
+
+}
+
+
+A ideia é: “Quais objetos existem no sistema e o que eles podem fazer?”
+
+
+
+Exemplo: Sistema de Chamada
+Imagine um sistema para registrar a chamada de uma turma.
+Na programação estruturada, poderíamos pensar principalmente na sequência:
+
+
+
+Main
+↓
+Cadastrar turma
+↓
+Cadastrar alunos
+↓
+Registrar chamada
+↓
+Mostrar chamada
+
+
+
+
+
+Na O.O., identificamos os principais objetos do problema:
+
+            Sistema
+
+               ↑
+
+             Turma
+
+           ↙       ↘
+
+       Aluno     Professor
+
+           ↘       ↙
+
+            Chamada
+
+
+
+Podemos ter:
+Classe Aluno
+- nome
+- matrícula
+- presença()
+
+
+
+Classe Professor
+- nome
+- registrarChamada()
+
+
+
+Classe Turma
+- código
+- alunos
+- professor
+
+
+
+Classe Chamada
+- data
+- presença
+
+
+
+**Abstração**
+Abstração é identificar somente as características e comportamentos importantes de algo para representar isso no sistema, ignorando detalhes desnecessários.
+
+Por exemplo, para representar um Aluno, não precisamos saber sua altura, cor favorita ou marca do celular. Podemos considerar apenas aquilo que é importante para o sistema:
+
+
+
+Aluno
+- nome
+- matrícula
+- presença
+
+
+
+Então, no exemplo do sistema de chamada, a abstração poderia identificar:
+
+
+
+Sistema de Chamada
+│
+├── Turma
+├── Professor
+├── Aluno
+└── Chamada
+
+
+
+A Orientação a Objetos (O.O.) é uma forma de organizar o programa utilizando classes e objetos. Os objetos possuem atributos, que representam suas características, e métodos, que representam suas ações ou comportamentos.
+
+As classes também podem possuir relações entre si, formando estruturas e hierarquias.
+
+Exemplo:
+
+class Aluno {
+    String nome; // atributo
+
+
+    void estudar() { // método
+        System.out.println("Estudando...");
+    }
+}
+
+Nesse caso, Aluno é a classe, nome é um atributo e estudar() é um método.
+
+
+NEW
+O new é utilizado para criar uma nova instância (objeto) de uma classe. Durante essa criação, o construtor da classe é chamado.
+
+Aluno aluno1 = new Aluno();
+
+Aqui:
+
+Aluno → classe;
+aluno1 → referência para o objeto;
+new Aluno() → cria o objeto e chama o construtor.
+
+
+THIS
+O this é uma referência ao próprio objeto que está executando aquele método ou construtor.
+
+É muito utilizado quando um atributo da classe possui o mesmo nome de um parâmetro:
+
+class Aluno {
+    String nome;
+
+
+    Aluno(String nome) {
+        this.nome = nome;
+    }
+}
+
+Nesse exemplo:
+
+this.nome → atributo do próprio objeto;
+nome → parâmetro recebido pelo construtor.
+
+
+\-----------------------------------------------------
+
+
+
+Métodos de Classificação de Dados
+Ordenação e Pesquisa
+
+Menos eficientes (quadráticos)
+
+Mais eficientes
+- Quick Sort
+- Merge Sort
+
+
+Sequencial - O(n)
+             ^ Big O 
+
+ - Linear
+----------------------------
+|   |   |   |   | 5 |   |   |
+----------------------------
+                  ^  
+
+for(i=0,i>5;i++)
+   if(v[n] == busca) {
+      return true;
+   }
+
+
+
+Binaria - O(log n)
+(a cada interação quebra o vetor em duas partes)
+obs: necessário vetor ordenado, ou seja, é necessário primeiro organizar o vetor antes de aplicar a pesquisa binaria.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
