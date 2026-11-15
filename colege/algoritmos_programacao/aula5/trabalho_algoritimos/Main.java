@@ -4,29 +4,18 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         jogador Jogador = new jogador();
         Bau bau = new Bau();
-
-        System.out.println("=== AVENTURA DAS CHARADAS ===");
-        System.out.println("Escolha a dificuldade:");
-        System.out.println("1 - Facil");
-        System.out.println("2 - Medio");
-        System.out.println("3 - Dificil");
-        System.out.print("Escolha: ");
-
-        int nivel = input.nextInt();
-        input.nextLine();                          
-
-        Charada charada = new Charada(nivel);
+        Charada charada = new Charada();
+        Scanner input = new Scanner(System.in);
 
         int i = 0;
 
-        System.out.println("\nVida: " + Jogador.vida);
+        System.out.println("=== AVENTURA DAS CHARADAS ===");
+        System.out.println("Vida: " + Jogador.vida);
         System.out.println("Dano inicial: " + Jogador.ataque());
 
         while (Jogador.vida > 0 && i < 6) {
-        // ... daqui pra baixo continua exatamente como estava
             int indice = charada.sortearIndice();
 
             System.out.println("\n===== CHARADA " + (i + 1) + " =====");

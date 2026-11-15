@@ -20,12 +20,6 @@ class criatura {
         this.dano = ataques[a];
     }
 
-    public criatura(int a,int b){
-        this.nome = "Ciclope Das Charadas";
-        this.Vida = a;
-        this.dano = b;
-    }
-
     int atacar()
     {
         return this.dano;
