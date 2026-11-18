@@ -1,16 +1,14 @@
+package colege.algoritmos_programacao.aula7.sistema_pagamentos;
 
-package colege.algoritimos_programacao.aula7.sistema_pagamentos;
+import java.io.PrintStream;
 
-public abstract class Empregado {
+public abstract class Empregado implements Validador {
 
     private int matricula;
     private String nome;
     private double salario;
 
-    // Sempre que criar um funcionário, receberá um código automático
     private static int contMatricula = 1000;
-
-    // O static torna a variável contMatricula compartilhada entre todos os objetos
 
     public Empregado(String nome) {
         this.nome = nome;
@@ -44,18 +42,28 @@ public abstract class Empregado {
     }
 
     public void mostrarEmpregado() {
+
         System.out.println("Dados do Empregado: ");
         System.out.println("------------------------------");
         System.out.println("MATRICULA  |  NOME  |  SALARIO");
+
         System.out.println("------------------------------");
 
-        System.out.println(this.getMatricula() + " - "
-                + this.getNome() + " - "
-                + this.getSalario());
+        PrintStream saida = System.out;
+
+        saida.println(
+            getMatricula() + " - " +
+            getNome() + " - " +
+            getSalario()
+        );
 
         System.out.println("------------------------------");
     }
 
-    abstract void calcularSalario(double horas, double valorHora);
+    @Override
+    public boolean validarSalario() {
+        return salario > 0;
+    }
 
+    abstract void calcularSalario(double horas, double valorHora);
 }

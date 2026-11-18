@@ -1,80 +1,157 @@
-
-/*
-Na empresa XYZ os empregados têm matrícula, nome e salário.
-O salário é calculado pelas horas trabalhadas e o valor da hora.
-
-Criar um programa para calcular o salário da turma.
-
-Obs.: o gerente ganha um bônus de 30%.
-O vendedor ganha uma comissão adicional de 8% sobre a venda do mês.
-*/
-
-package com.mycompany.projetoFolhaPagamento;
+package colege.algoritmos_programacao.aula7.sistema_pagamentos;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Scanner;
 
 public class FolhaPagamento {
 
     public static void main(String[] args) {
 
-        // Todo o sistema será baseado em um ArrayList de objetos "Empregado"
-        ArrayList<Empregado> empregados;
-        empregados = new ArrayList<>();
+        Scanner entrada = new Scanner(System.in);
 
-        System.out.println("Sistema de Folha de Pagamento 1.0");
+        ArrayList<Empregado> empregados = new ArrayList<>();
 
-        // Criando um empregado padrão
-        Empregado ep = new EmpregadoPadrao("Jacir Oliveira");
+        int opcao;
 
-        ep.mostrarEmpregado();
+        do {
 
-        ep.calcularSalario(44, 59.33);
+            System.out.println("\n===== SISTEMA DE FOLHA DE PAGAMENTO =====");
+            System.out.println("1 - Cadastrar empregado padrão");
+            System.out.println("2 - Cadastrar gerente");
+            System.out.println("3 - Cadastrar vendedor");
+            System.out.println("4 - Listar empregados");
+            System.out.println("5 - Sair");
 
-        ep.mostrarEmpregado();
+            System.out.print("Escolha uma opção: ");
 
-        // Vamos criar um gerente
-        Empregado gerente = new Gerente("Sr. Farias", 0.35);
+            opcao = entrada.nextInt();
+            entrada.nextLine();
 
-        gerente.calcularSalario(40, 89.90);
+            switch (opcao) {
 
-        // Vamos colocar os empregados no ArrayList
-        empregados.add(ep);
-        empregados.add(gerente);
+                case 1:
 
-        System.out.println("Qtde empregados: " + empregados.size());
+                    System.out.print("Nome: ");
+                    String nome = entrada.nextLine();
 
-        // Agora vamos mostrar os objetos dentro do ArrayList
+                    System.out.print("Horas trabalhadas: ");
+                    double horas = entrada.nextDouble();
 
-        // Forma 1 - Com Iterator
-        // O iterador chamado "pegador" vai interagir
-        // no ArrayList de empregados.
+                    System.out.print("Valor da hora: ");
+                    double valorHora = entrada.nextDouble();
 
-        Iterator<Empregado> pegador = empregados.iterator();
+                    EmpregadoPadrao ep = new EmpregadoPadrao(nome);
 
-        while (pegador.hasNext()) {
+                    ep.calcularSalario(horas, valorHora);
 
-            Empregado emp = pegador.next();
+                    if (ep.validarSalario()) {
 
-            emp.mostrarEmpregado();
-        }
+                        empregados.add(ep);
 
-        // Forma 2 - Com Foreach
-        System.out.println("Mostrando os empregados 2: \n");
+                        System.out.println("Empregado cadastrado com sucesso!");
 
-        for (Empregado emp : empregados) {
+                    } else {
 
-            emp.mostrarEmpregado();
-        }
+                        System.out.println("Salario invalido! Empregado nao cadastrado.");
 
-        // Forma 3 - Com Expressões Lambda
-        System.out.println("Mostrando os empregados 3: \n");
+                    }
 
-        empregados.forEach(emp -> emp.mostrarEmpregado());
+                    break;
 
+                case 2:
+
+                    System.out.print("Nome do gerente: ");
+                    nome = entrada.nextLine();
+
+                    System.out.print("Horas trabalhadas: ");
+                    horas = entrada.nextDouble();
+
+                    System.out.print("Valor da hora: ");
+                    valorHora = entrada.nextDouble();
+
+                    Gerente gerente = new Gerente(nome, 0.30);
+
+                    gerente.calcularSalario(horas, valorHora);
+
+                    if (gerente.validarSalario()) {
+
+                        empregados.add(gerente);
+
+                        System.out.println("Gerente cadastrado com sucesso!");
+
+                    } else {
+
+                        System.out.println("Salario invalido! Gerente nao cadastrado.");
+
+                    }
+
+                    break;
+
+                case 3:
+
+                    System.out.print("Nome do vendedor: ");
+                    nome = entrada.nextLine();
+
+                    System.out.print("Horas trabalhadas: ");
+                    horas = entrada.nextDouble();
+
+                    System.out.print("Valor da hora: ");
+                    valorHora = entrada.nextDouble();
+
+                    System.out.print("Total de vendas no mês: ");
+                    double vendas = entrada.nextDouble();
+
+                    Vendedor vendedor = new Vendedor(nome, 0.08);
+
+                    vendedor.calcularSalario(horas, valorHora);
+
+                    if (vendedor.validarSalario()) {
+
+                        empregados.add(vendedor);
+
+                        System.out.println("Vendedor cadastrado com sucesso!");
+
+                    } else {
+
+                        System.out.println("Salario invalido! Vendedor nao cadastrado.");
+
+                    }
+
+                    break;
+
+                case 4:
+
+                    System.out.println("\n===== EMPREGADOS CADASTRADOS =====");
+
+                    if (empregados.isEmpty()) {
+
+                        System.out.println("Nenhum empregado cadastrado!");
+
+                    } else {
+
+                        for (Empregado emp : empregados) {
+
+                            emp.mostrarEmpregado();
+
+                        }
+                    }
+
+                    break;
+
+                case 5:
+
+                    System.out.println("Encerrando o sistema...");
+
+                    break;
+
+                default:
+
+                    System.out.println("Opcao invalida!");
+
+            }
+
+        } while (opcao != 5);
+
+        entrada.close();
     }
 }
-
-// Exercício de continuidade:
-// Implementar o vendedor e criar um menu de cadastro
-// de empregados aqui no main.

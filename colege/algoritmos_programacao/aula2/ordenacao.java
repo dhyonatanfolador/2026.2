@@ -1,4 +1,4 @@
-package aula2;
+package colege.algoritmos_programacao.aula2;
 
 import java.util.Arrays;
 

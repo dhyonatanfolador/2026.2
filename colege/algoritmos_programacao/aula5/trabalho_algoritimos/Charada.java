@@ -1,3 +1,4 @@
+package colege.algoritmos_programacao.aula5.trabalho_algoritimos;
 import java.util.Random;
 class Charada {
 

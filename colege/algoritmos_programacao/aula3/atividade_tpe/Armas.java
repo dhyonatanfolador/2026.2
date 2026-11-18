@@ -1,3 +1,4 @@
+package colege.algoritmos_programacao.aula3.atividade_tpe;
 public class Armas {
     int dano;
 
