@@ -1,3 +1,4 @@
+/*
 Questão 1
 
 Modulo A: Eu utilizaria o vetor, pela agilidade no acesso das informações por ter uma complexidade menor, de Big O(1), pois como a posição das novas mensagens é sempre o final do vetor, não precisamos percorrer ele todo para chegar a mensagem necessária.
@@ -14,9 +15,9 @@ e sua complexidade é O(n)
 
 Questão 2
 
-A) A função, compara os valores da lista, até estar apontando para o valor final da lista, o mesmo compara eles e realiza a contagem dos valores que são maiores que o X e retorna essa contagem.
+A. A função, compara os valores da lista, até estar apontando para o valor final da lista, o mesmo compara eles e realiza a contagem dos valores que são maiores que o X e retorna essa contagem.
 
-B) 
+B. 
 _____________
 8  - Sim -  1
 3  - Não -  1
@@ -27,28 +28,7 @@ _____________
 ￣￣￣￣￣￣￣￣
 Valor final: 3
 
+C. Não, pensei em algumas possibilidades, mais todas apenas aumentariam sua complexidade, como realizar a ordenação da lista, e depois percorre-la até encontrar um valor maior que X, dessa forma, podemos considerar que todos os valores depois dele, seriam maiores.
 
 
-C) Não, pensei em algumas possibilidades, mais todas apenas aumentariam sua complexidade, como realizar a ordenação da lista, e depois percorre-la até encontrar um valor maior que X, dessa forma, podemos considerar que todos os valores depois dele, seriam maiores.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
