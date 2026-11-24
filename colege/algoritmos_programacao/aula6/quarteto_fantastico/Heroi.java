@@ -1,4 +1,4 @@
-package quarteto_fantastico;
+package colege.algoritmos_programacao.aula6.quarteto_fantastico;
 
 abstract class Heroi {
     private String nome;

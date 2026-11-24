@@ -1,4 +1,4 @@
-package pokemon_app;
+package colege.algoritmos_programacao.aula4.pokemon_app;
 
 public class Golpe {
     String nome;

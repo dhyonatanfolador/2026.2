@@ -1,4 +1,4 @@
-package encapsulamento;
+package colege.algoritmos_programacao.aula5.encapsulamento;
 
 public class Main {
 

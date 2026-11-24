@@ -1,3 +1,4 @@
+package colege.algoritmos_programacao.aula3.atividade_tpe;
 import java.util.Random;
 
 public class Tesouro {
