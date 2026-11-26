@@ -201,29 +201,26 @@ void List_clear(List *L) {
 int main(void) {
     List L;
 
-    /* 1. Cria e inicializa uma lista vazia. */
+    
     List_init(&L);
 
-    /* 2. Insere 10, 20 e 30 no final da lista. */
     List_insert_end(&L, 10);
     List_insert_end(&L, 20);
     List_insert_end(&L, 30);
 
-    /* 3. Insere 5 no início da lista. */
     List_insert_begin(&L, 5);
 
-    /* 4. Imprime a lista do início para o fim. */
+    /* Imprime a lista do início para o fim. */
     printf("Lista do inicio para o fim: ");
     List_print_forward(&L);
 
-    /* 5. Imprime a lista do fim para o início. */
+    /* Imprime a lista do fim para o início. */
     printf("Lista do fim para o inicio: ");
     List_print_backward(&L);
 
-    /* 6. Mostra o valor retornado pela Parte 1. */
     printf("Ultimo valor: %d\n", List_get_last_val(&L));
 
-    /* 7. Executa a Parte 2 duas vezes e imprime após cada remoção. */
+   
     List_remove_last(&L);
     printf("\nDepois de remove_last:\n");
     List_print_forward(&L);
@@ -232,15 +229,15 @@ int main(void) {
     printf("\nDepois de remove_last:\n");
     List_print_forward(&L);
 
-    /* 8. Remove o valor 10 usando a função de remoção por valor. */
+    
     List_remove_val(&L, 10);
     printf("\nDepois de remover 10:\n");
     List_print_forward(&L);
 
-    /* 9. Mostra a lista final e seu tamanho. */
+ 
     printf("Tamanho final: %zu\n", L.size);
 
-    /* 10. Libera toda a memória utilizada pela lista. */
+    /* Libera toda a memória utilizada pela lista. */
     List_clear(&L);
 
     return 0;
