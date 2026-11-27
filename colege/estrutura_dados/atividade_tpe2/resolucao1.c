@@ -28,66 +28,65 @@ typedef struct _doubly_linked_list {
 
 
 /* Funções de apoio utilizadas para preparar e testar a lista. */
-
-/* Inicializa a lista vazia. */
+/* Inicia a lista vazia. */
 void List_init(List *L) {
     L->begin = NULL;
     L->end = NULL;
     L->size = 0;
 }
 
-/* Insere um valor no final da lista. */
+/* Adiciona um valor no final da lista. */
 void List_insert_end(List *L, int val) {
     Node *novo = malloc(sizeof(Node));
 
     if (novo == NULL) {
-        printf("Erro ao alocar memoria.\n");
-        exit(EXIT_FAILURE);
+        printf("Erro\n");
+        exit(1);
     }
 
     novo->val = val;
-    novo->prev = L->end;
     novo->next = NULL;
 
-    if (L->end == NULL) {
+    if (L->size == 0) {
+        novo->prev = NULL;
         L->begin = novo;
+        L->end = novo;
     } else {
+        novo->prev = L->end;
         L->end->next = novo;
+        L->end = novo;
     }
 
-    L->end = novo;
     L->size++;
 }
 
-/* Insere um valor no início da lista. */
+/* Adiciona um valor no início da lista. */
 void List_insert_begin(List *L, int val) {
     Node *novo = malloc(sizeof(Node));
 
     if (novo == NULL) {
-        printf("Erro ao alocar memoria.\n");
-        exit(EXIT_FAILURE);
+        printf("Erro\n");
+        exit(1);
     }
 
     novo->val = val;
     novo->prev = NULL;
-    novo->next = L->begin;
 
-    if (L->begin == NULL) {
+    if (L->size == 0) {
+        novo->next = NULL;
+        L->begin = novo;
         L->end = novo;
     } else {
+        novo->next = L->begin;
         L->begin->prev = novo;
+        L->begin = novo;
     }
 
-    L->begin = novo;
     L->size++;
 }
 
 /* Remove a primeira ocorrência de um valor. */
 void List_remove_val(List *L, int val) {
-    if (L == NULL) {
-        return;
-    }
-
     Node *atual = L->begin;
 
     while (atual != NULL && atual->val != val) {
@@ -98,16 +97,18 @@ void List_remove_val(List *L, int val) {
         return;
     }
 
-    if (atual->prev != NULL) {
-        atual->prev->next = atual->next;
-    } else {
+    if (L->size == 1) {
+        L->begin = NULL;
+        L->end = NULL;
+    } else if (atual == L->begin) {
         L->begin = atual->next;
-    }
-
-    if (atual->next != NULL) {
-        atual->next->prev = atual->prev;
-    } else {
+        L->begin->prev = NULL;
+    } else if (atual == L->end) {
         L->end = atual->prev;
+        L->end->next = NULL;
+    } else {
+        atual->prev->next = atual->next;
+        atual->next->prev = atual->prev;
     }
 
     free(atual);
@@ -115,8 +116,8 @@ void List_remove_val(List *L, int val) {
 }
 
 /* Retorna o último valor da lista. */
-int List_get_last_val(const List *L) {
-    if (L == NULL || L->end == NULL) {
+int List_get_last_val(List *L) {
+    if (L->size == 0) {
         return -1;
     }
 
@@ -125,17 +126,19 @@ int List_get_last_val(const List *L) {
 
 /* Remove o último elemento da lista. */
 void List_remove_last(List *L) {
-    if (L == NULL || L->end == NULL) {
+    Node *remover;
+
+    if (L->size == 0) {
         return;
     }
 
-    Node *remover = L->end;
+    remover = L->end;
 
-    L->end = remover->prev;
-
-    if (L->end == NULL) {
+    if (L->size == 1) {
         L->begin = NULL;
+        L->end = NULL;
     } else {
+        L->end = remover->prev;
         L->end->next = NULL;
     }
 
@@ -144,7 +147,7 @@ void List_remove_last(List *L) {
 }
 
 /* Imprime a lista do início ao fim. */
-void List_print_forward(const List *L) {
+void List_print_forward(List *L) {
     Node *atual = L->begin;
 
     while (atual != NULL) {
@@ -161,7 +164,7 @@ void List_print_forward(const List *L) {
 }
 
 /* Imprime a lista do fim para o início. */
-void List_print_backward(const List *L) {
+void List_print_backward(List *L) {
     Node *atual = L->end;
 
     while (atual != NULL) {
@@ -179,14 +182,11 @@ void List_print_backward(const List *L) {
 
 /* Função que libera todos os nós e deixa a lista vazia. */
 void List_clear(List *L) {
-    if (L == NULL) {
-        return;
-    }
-
     Node *atual = L->begin;
+    Node *proximo;
 
     while (atual != NULL) {
-        Node *proximo = atual->next;
+        proximo = atual->next;
         free(atual);
         atual = proximo;
     }
@@ -198,10 +198,9 @@ void List_clear(List *L) {
 
 
 /* QUESTÃO 2 - TESTE */
-int main(void) {
+int main() {
     List L;
 
-    
     List_init(&L);
 
     List_insert_end(&L, 10);
@@ -220,7 +219,6 @@ int main(void) {
 
     printf("Ultimo valor: %d\n", List_get_last_val(&L));
 
-   
     List_remove_last(&L);
     printf("\nDepois de remove_last:\n");
     List_print_forward(&L);
@@ -229,12 +227,10 @@ int main(void) {
     printf("\nDepois de remove_last:\n");
     List_print_forward(&L);
 
-    
     List_remove_val(&L, 10);
     printf("\nDepois de remover 10:\n");
     List_print_forward(&L);
 
- 
     printf("Tamanho final: %zu\n", L.size);
 
     /* Libera toda a memória utilizada pela lista. */
